@@ -14,6 +14,7 @@ import json
 from langchain_core.messages import ToolMessage
 
 
+
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langgraph.prebuilt import ToolExecutor
 from langchain_chroma import Chroma
@@ -56,14 +57,14 @@ SystemMessagePromptTemplate,
 HumanMessagePromptTemplate,
 )
 from streamlit_lottie import st_lottie
-from langchain_google_genai import ChatGoogleGenerativeAI
+
 from langchain_community.utilities import GoogleSerperAPIWrapper
 
 # llm = ChatOpenAI(api_key="AIzaSyBdEYoKwmQr3rTkB_rD77D_QBYxfDjPJwQ",
 #                  model="google/gemma-2b-it",temperature=0.05)
 from langchain_google_vertexai import VertexAI
 import vertexai
-vertexai.init(project="saraswati-ai", location="us-central1")
+vertexai.init(project="nlp1-427616", location="us-central1")
   
 llm = VertexAI(model_name="gemini-pro")
 # message = "What are some of the pros and cons of Python as a programming language?"
@@ -141,7 +142,7 @@ chain = prompt | llm
 # Tone Styles	Encouraging, Neutral, Informative, Friendly, Humorous
 # Reasoning Frameworks	Deductive, Inductive, Abductive, Analogical, Causal
 # Language	English (Default), any language GPT-4 is capable of doing.
-    
+
 
 @st.cache_data
 def conversation_chat1(query):

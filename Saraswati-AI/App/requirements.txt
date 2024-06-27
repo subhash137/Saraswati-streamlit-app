@@ -17,3 +17,6 @@ google-cloud-logging
 streamlit_lottie
 SpeechRecognition
 langchain_openai
+pypdf
+youtube-search
+pyaudio

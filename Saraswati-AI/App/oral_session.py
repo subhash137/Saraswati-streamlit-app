@@ -14,8 +14,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_google_vertexai import VertexAI
 from streamlit_lottie import st_lottie
 import vertexai
-vertexai.init(project="saraswati-ai", location="us-central1")
-  
+vertexai.init(project="nlp1-427616", location="us-central1")
+
 llm = VertexAI(model_name="gemini-pro")
 # Function to convert speech to text
 if 'cht' not in st.session_state:

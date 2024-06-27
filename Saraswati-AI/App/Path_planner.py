@@ -1,4 +1,4 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
+
 from langchain_google_vertexai import VertexAI
 import vertexai
 from langchain_google_vertexai import ChatVertexAI
@@ -75,7 +75,7 @@ from langchain_google_vertexai import VertexAI
 import vertexai
 from langchain_google_vertexai import ChatVertexAI
 
-vertexai.init(project="saraswati-ai", location="us-central1")
+vertexai.init(project="nlp1-427616", location="us-central1")
 
 llm = VertexAI(model_name="gemini-pro")
 # llm = ChatOpenAI(model='google/gemini-pro')
@@ -109,7 +109,13 @@ def format_headers(text):
     # return formatted_text
     
 
-TAVILY_API_KEY="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"
+# TAVILY_API_KEY="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"
+from langchain.utilities.tavily_search import TavilySearchAPIWrapper
+from langchain_community.tools.tavily_search import TavilySearchResults
+
+api_key = "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"
+search = TavilySearchAPIWrapper(tavily_api_key=api_key)
+# tavily_tool = TavilySearchResults(api_wrapper=search)
 
 # Format headers
 if 'answer1' not in st.session_state:
@@ -166,7 +172,7 @@ def fr(topic12):
         rtt = topic12 + "," + "3"
         re3  = tool1.run(rtt)
         st.session_state['linky'].append(re3)
-        re4 = TavilySearchResults(max_results=3).run(topic12)
+        re4 =  TavilySearchResults(api_wrapper=search,max_results=3).run(topic12)
         st.session_state['linkt'].append(re4)
         
         provided_text =  invoke_api1(st.session_state['user1'][-1])

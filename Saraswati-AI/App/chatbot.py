@@ -41,7 +41,7 @@ from streamlit_lottie import st_lottie
 from langchain_google_vertexai import VertexAI
 import vertexai
 
-vertexai.init(project="saraswati-ai", location="us-central1")
+vertexai.init(project="nlp1-427616", location="us-central1")
 
 llm = VertexAI(model_name="gemini-pro")
 
